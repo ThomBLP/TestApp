@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_19_123654) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_19_130452) do
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "user_id", null: false
+    t.integer "vehicle_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["vehicle_id"], name: "index_bookings_on_vehicle_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -23,4 +34,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_19_123654) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_vehicles_on_user_id"
+  end
+
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "vehicles"
+  add_foreign_key "vehicles", "users"
 end
