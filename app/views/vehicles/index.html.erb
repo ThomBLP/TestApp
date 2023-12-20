@@ -1,2 +1,11 @@
-<h1>Vehicles#index</h1>
-<p>Find me in app/views/vehicles/index.html.erb</p>
+</div>
+    <% @vehicles.each do |vehicle| %>
+          <div class="card">
+          <%= image_tag vehicle.photo %>
+              <div class="card-body">
+                  <h1><%= vehicle.name %></h1>
+                  <p class="card-text"><%= vehicle.price %>€/day</p>
+                  <%= link_to "détails", vehicle_path(vehicle), class: "btn btn-primary"%>
+              </div>
+          </div>
+    <% end %>

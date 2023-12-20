@@ -1,2 +1,12 @@
 <h1>Vehicles#create</h1>
 <p>Find me in app/views/vehicles/create.html.erb</p>
+
+<%= simple_form_for @vehicle do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
+<br>
+

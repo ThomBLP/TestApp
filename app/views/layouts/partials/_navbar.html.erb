@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <%= link_to image_tag("logo.png", alt: "Logo", class: "logo"), root_path %>
+  </div>
+  <div class="navbar-right">
+    <%= link_to image_tag("nono.jpg", class: "nono", alt: "Avatar"), "#" %>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <%= link_to "Mes véhicules", root_path  %>
+        <%= link_to "Mes réservations", root_path  %>
+        <%= link_to "Accueil", root_path %>
+        <%= link_to "Déconnexion", root_path %>
+      </div>
+    </div>
+  </div>
+</nav>

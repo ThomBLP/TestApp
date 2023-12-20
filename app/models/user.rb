@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :vehicles
+  validates :email, presence: true, uniqueness: true
 end
